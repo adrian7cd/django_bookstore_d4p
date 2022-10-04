@@ -1,0 +1,3 @@
+Hello from… 
+{% block content%}
+{% endblock content %}
