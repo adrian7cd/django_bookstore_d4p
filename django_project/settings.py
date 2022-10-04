@@ -10,7 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+
 from pathlib import Path
+
+#env = Env()
+#env.read_env()
+
+#SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qi%h3j0vd35k%v1s&2s6*50yn1ziy20$*+-itsgs(o(f1_8+!6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = False
+# DEBUG = env.bool("DJANGO_DEBUG")
+ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -94,6 +100,11 @@ DATABASES = {
     "PORT": 5432,
 }
 }
+
+#DATABASES = {
+#"default": env.dj_db_url("DATABASE_URL",
+#default="postgres://postgres@db/postgres")
+#}
 
 
 
